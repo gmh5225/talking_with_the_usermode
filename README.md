@@ -22,8 +22,8 @@ bcdedit /set testsigning on
 After rebooting, create a service and run the driver:
 
 ```cmd
-sc create nidhogg type= kernel binPath= C:\Path\To\Driver\Nidhogg.sys
-sc start nidhogg
+sc create drivername type= kernel binPath= C:\Path\To\Driver\drivername.sys
+sc start drivername
 ```
 
 ##### Debugging
