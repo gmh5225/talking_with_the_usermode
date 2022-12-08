@@ -9,7 +9,7 @@ This is done by stripping the handle to the protected process from its PROCESS_T
 
 
 
-#### Important CLI commands mentioned in [Lord of the rings](https://idov31.github.io/2022/07/14/lord-of-the-ring0-p1.html) to start the driver.
+#### Important CLI commands mentioned in [Nidhogg Repo]((https://github.com/Idov31/Nidhogg)) to start the driver.
 
 ##### Driver Testing
 
