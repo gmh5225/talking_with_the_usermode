@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.33027.164
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "talking_with_the_user_mode", "talking_with_the_user_mode.vcxproj", "{B0903415-7FB1-41D3-B337-39C55A1DE183}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "usermode_part", "..\usermode_part\usermode_part.vcxproj", "{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -41,6 +43,18 @@ Global
 		{B0903415-7FB1-41D3-B337-39C55A1DE183}.Release|x86.ActiveCfg = Release|Win32
 		{B0903415-7FB1-41D3-B337-39C55A1DE183}.Release|x86.Build.0 = Release|Win32
 		{B0903415-7FB1-41D3-B337-39C55A1DE183}.Release|x86.Deploy.0 = Release|Win32
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Debug|ARM.ActiveCfg = Debug|Win32
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Debug|ARM64.ActiveCfg = Debug|Win32
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Debug|x64.ActiveCfg = Debug|x64
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Debug|x64.Build.0 = Debug|x64
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Debug|x86.ActiveCfg = Debug|Win32
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Debug|x86.Build.0 = Debug|Win32
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Release|ARM.ActiveCfg = Release|Win32
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Release|ARM64.ActiveCfg = Release|Win32
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Release|x64.ActiveCfg = Release|x64
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Release|x64.Build.0 = Release|x64
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Release|x86.ActiveCfg = Release|Win32
+		{EC6EF541-DECF-4CAA-AF2C-042AAF9F3DD9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
