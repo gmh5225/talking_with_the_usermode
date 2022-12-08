@@ -34,4 +34,4 @@ To debug the driver in your testing environment run this command with elevated c
 bcdedit /debug on
 ```
 
-After the reboot, you can see the debugging messages in tools such as
+After the reboot, you can see the debugging messages in tools such as WinDBG WDK Tool.
