@@ -159,6 +159,10 @@
   <ItemGroup>
     <ClCompile Include="Driver.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ModuleUtils.hpp" />
+    <ClInclude Include="WindowsTypes.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

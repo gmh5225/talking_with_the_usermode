@@ -1,8 +1,14 @@
-#include <ntddk.h>
+#include "ModuleUtils.hpp"
 
 //Definitions
 #define IOCTL_PROTECT_PID	CTL_CODE(0x8000, 0x800, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define IOCTL_READ_REQUEST	CTL_CODE(0x8000, 0x666, METHOD_BUFFERED, FILE_SPECIAL_ACCESS)
+#define IOCTL_WRITE_REQUEST	CTL_CODE(0x8000, 0x667, METHOD_BUFFERED, FILE_SPECIAL_ACCESS)
+#define IOCTL_GET_MODULE	CTL_CODE(0x8000, 0x669, METHOD_BUFFERED, FILE_SPECIAL_ACCESS)
 #define PROCESS_TERMINATE 1
+#define PROCESS_VM_READ 0x10
+#define PROCESS_CREATE_THREAD 0x2
+#define PROCESS_VM_OPERATION 8
 
 //Prototypes
 DRIVER_UNLOAD ProtectorUnload;
@@ -95,6 +101,7 @@ NTSTATUS ProtectorCreateClose(PDEVICE_OBJECT pDevice, PIRP Irp) {
 	return STATUS_SUCCESS;
 }
 
+// TODO Pass more complex Structures in both directions + include Functionality from Module Utils hpp.
 NTSTATUS ProtectorDeviceControl(PDEVICE_OBJECT pDevice, PIRP Irp) {
 
 	UNREFERENCED_PARAMETER(pDevice);
@@ -102,7 +109,6 @@ NTSTATUS ProtectorDeviceControl(PDEVICE_OBJECT pDevice, PIRP Irp) {
 	NTSTATUS status = STATUS_SUCCESS;
 	auto stack = IoGetCurrentIrpStackLocation(Irp);
 	
-
 	switch ((*stack).Parameters.DeviceIoControl.IoControlCode) {
 	case IOCTL_PROTECT_PID: {
 		auto size = (*stack).Parameters.DeviceIoControl.InputBufferLength;
@@ -114,6 +120,8 @@ NTSTATUS ProtectorDeviceControl(PDEVICE_OBJECT pDevice, PIRP Irp) {
 		protectedPid = *data;
 		break;
 	}
+	case IOCTL_GET_MODULE:
+		auto data = (ULONG*)(*Irp).AssociatedIrp.SystemBuffer;
 	default:
 		status = STATUS_INVALID_DEVICE_REQUEST;
 		break;
@@ -137,6 +145,9 @@ OB_PREOP_CALLBACK_STATUS PreOpenProcessOperation(PVOID RegistrationContext, POB_
 
 	if (pid == protectedPid) {
 		(*(*Info).Parameters).CreateHandleInformation.DesiredAccess &= ~PROCESS_TERMINATE;
+		(*(*Info).Parameters).CreateHandleInformation.DesiredAccess &= ~PROCESS_DUP_HANDLE;
+		(*(*Info).Parameters).CreateHandleInformation.DesiredAccess &= ~PROCESS_VM_READ;
+		(*(*Info).Parameters).CreateHandleInformation.DesiredAccess &= ~PROCESS_VM_OPERATION;
 	}
 
 	return OB_PREOP_SUCCESS;
