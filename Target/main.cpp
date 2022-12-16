@@ -6,7 +6,7 @@ int main() {
 	std::cout << GetCurrentProcessId() << std::endl;
 	for (;;) {
 		if (counter % 5 == 0) {
-			std::cout << "Tick" << std::endl;
+			std::cout << "Tickk" << std::endl;
 		}
 
 		counter++;

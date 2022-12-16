@@ -148,6 +148,7 @@
     </Link>
     <ClCompile>
       <LanguageStandard_C>Default</LanguageStandard_C>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -160,8 +161,7 @@
     <ClCompile Include="Driver.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ModuleUtils.hpp" />
-    <ClInclude Include="WindowsTypes.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
