@@ -5,9 +5,9 @@ Credits <br>
 - [SMH](https://github.com/ContionMig/Simple-Millin-Kernel)
 
 Example on how a Windows Driver and a usermode application can communicate following the Rings Tutorial. <br>
-Currently the Driver is able to take a IOCTL Request from the usermode application and protect a given pid from being terminated. <br>
-This is done by stripping the handle to the protected process from its PROCESS_TERMINATE rights. Handles to the protected pid also can not have When OpenProcess is called and a Handle to the protected program is created the Callback interferes.
-Reading from memory given a target process and writing to it is also possible. The Game CSGO is used as an example.
+Currently the Driver is able to take IOCTL Requests from the usermode application. <br> 
+The driver can provide the usermode application a base address of a module, a pid to the process the module is loaded in, read/write operations to/from memory and protect a given pid from being terminated/read (from).
+PreOpenProcessOperation strips any newly created handle to the protected process from its (PROCESS_TERMINATE), PROCESS_DUP_HANDLE, PROCESS_VM_READ and PROCESS_VM_OPERATION rights. When OpenProcess is called and a Handle to the protected program is created the Callback interferes.
 
 
 #### Important CLI commands mentioned in [Nidhogg Repo](https://github.com/Idov31/Nidhogg) to start the driver.
