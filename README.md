@@ -6,7 +6,7 @@ Credits <br>
 
 Example on how a Windows Driver and a usermode application can communicate following the Rings Tutorial. <br>
 Currently the Driver is able to take a IOCTL Request from the usermode application and protect a given pid from being terminated. <br>
-This is done by stripping the handle to the protected process from its PROCESS_TERMINATE rights. When OpenProcess is called and a Handle to the protected program is created the Callback interferes.
+This is done by stripping the handle to the protected process from its PROCESS_TERMINATE rights. Handles to the protected pid also can not have When OpenProcess is called and a Handle to the protected program is created the Callback interferes.
 Reading from memory given a target process and writing to it is also possible. The Game CSGO is used as an example.
 
 
